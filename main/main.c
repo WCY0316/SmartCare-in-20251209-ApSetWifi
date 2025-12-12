@@ -165,16 +165,16 @@ void VRoutineTask(void *arg)
                 AutoHeatEnable = 1;
                 SetRGBLedColor(rgbLed_Heating, LED_COLOR_BLUE, LED_BLINK); // wcy debug2025.4.1
                 sDisconnect = 0;
-                TcpCloseFlag();                                            // 开启自动重连  wcy debug2025.4.15
+                TcpCloseFlag(); // 开启自动重连  wcy debug2025.4.15
                 // once_debug = true;                                         // 进入加热状态后，不允许进入调试模式
                 SetMState(STA_HEATING);
             }
-            else if (KeyState.BtnLongClicked) // 长按 
+            else if (KeyState.BtnLongClicked) // 长按
             {
                 KeyState.BtnLongClicked = 0;
                 SetMState(STA_BLE);
             }
-             
+
             if (!IsWifiConnected()) // 若WIFI断开，重新进入STA_INIT状态
             {
                 SetMState(STA_INIT);
@@ -344,8 +344,8 @@ void VRoutineTask(void *arg)
             }
             if (IsWifiConnected())
             {
-                TcpCloseFlag();                                            // 开启自动重连  wcy debug2025.9.12
-                if(IsServerConnected())
+                TcpCloseFlag(); // 开启自动重连  wcy debug2025.9.12
+                if (IsServerConnected())
                 {
                     Cd.WiFiLinkTime = 0;
                     KeyState.BtnSingleClicked = 0;
@@ -445,18 +445,18 @@ void Read_SN_Code(void)
 // 系统级初始化（硬件+软件）
 static void System_Init(void)
 {
-    init_log_storage();   // 初始化日志存储
-    Read_SN_Code();       // 读取SN码
-    ShowVersion();        // 显示版本信息
-    InitGpio();           // 初始化GPIO
-    InitTimer();          // 初始化定时器
-    InitBuzzer();         // 初始化蜂鸣器
-    InitLed();            // 初始化LED
-    SelfCheck();          // 自检
+    init_log_storage(); // 初始化日志存储
+    Read_SN_Code();     // 读取SN码
+    ShowVersion();      // 显示版本信息
+    InitGpio();         // 初始化GPIO
+    InitTimer();        // 初始化定时器
+    InitBuzzer();       // 初始化蜂鸣器
+    InitLed();          // 初始化LED
+    SelfCheck();        // 自检
     // InitUserWifi();       // 初始化WIFI
     start_ApSetWifi(); // 启动AP配置WiFi
-    InitHeat();           // 初始化加热模块
-    InitCamera();         // 初始化摄像头
+    InitHeat();        // 初始化加热模块
+    InitCamera();      // 初始化摄像头
     // InitHeartbeatTim(30); // 初始化心跳定时器
 }
 void app_main(void)
