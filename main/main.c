@@ -19,7 +19,7 @@
 #include "bsp_log.h"
 #include "ap_set_wifi.h"
 
-char deviceSN[11] = "SC00000001"; // 设备名称
+char deviceSN[11] = "SC00000000"; // 设备名称
 
 MACHINE_STATE state_id = STA_INIT;
 
@@ -29,8 +29,8 @@ nvs_handle_t nvsHandle; // NVS句柄
 
 TaskHandle_t tcpServerTaskHandle = NULL;
 
-extern volatile bool sDisconnect;  
- 
+extern volatile bool sDisconnect;
+
 // 字符串处理函数
 char *DisposeStr(char *str, char *buf)
 {
