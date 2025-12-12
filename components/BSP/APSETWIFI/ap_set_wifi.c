@@ -602,8 +602,8 @@ static esp_err_t status_get_handler(httpd_req_t *req)
         }
         else
         { // 未连接
-            // snprintf(response, sizeof(response),
-            //          "{\"connected\":false,\"message\":\"正在连接 WiFi...\"}");
+          // snprintf(response, sizeof(response),
+          //          "{\"connected\":false,\"message\":\"正在连接 WiFi...\"}");
         }
     }
 
